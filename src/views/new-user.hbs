@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> 'header'}}
+    <title>Ingresar Datos ✉️</title>
+</head>
+<body class="h-screen ">
+    {{> 'nav'}}
+   
+        <section class="m-auto mt-8 bg-white rounded-lg shadow-2xl sm:max-w-md sm:w-full sm:overflow-hidden">
+            <div class="px-4 py-8 sm:px-10">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full">
+                        </div>
+                    </div>
+                    <div class="relative flex justify-center leading-5 text-md">
+                        <span class="px-2 text-gray-500 bg-white">
+                            Ingrese sus datos
+                        </span>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+        
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <form class="w-full space-y-6" method="POST" action="/new-user">
+                        <div class="w-full">
+                            <div class="relative ">
+                                <input type="text" id="search-form-price"
+                                    class="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                    placeholder="Tu nombre" name="name" required />
+                            </div>
+                        </div>
+                        <div class="w-full">
+                            <div class="relative ">
+                                <input type="text" id="search-form-price"
+                                    class="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                    placeholder="Tu rol, ejem: Estudiante" name="rol" required />
+                            </div>
+                        </div>
+                        <div class="w-full">
+                            <div class="relative ">
+                                <input type="text" id="search-form-location"
+                                    class="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                    placeholder="Tu edad" name="age" required />
+                            </div>
+                        </div>
+                        <div class="w-full">
+                            <div class="relative ">
+                                <input type="text" id="search-form-name"
+                                    class="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                    placeholder="Tu pais" name="country" required />
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit"
+                                class="px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-purple-50 text-purple-600 block w-full">
+                                <span
+                                    class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-purple-600 group-hover:h-full opacity-90"></span>
+                                <span class="relative group-hover:text-white">Guardar</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+</body>
+</html>
