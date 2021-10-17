@@ -7,11 +7,9 @@
     "express": "^4.17.1",
     "hbs": "^4.1.2"
   },
-  "devDependencies": {
-    "morgan": "^1.10.0"
-  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index"
   },
   "keywords": [],
   "author": "",
