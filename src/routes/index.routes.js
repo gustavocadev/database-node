@@ -1,6 +1,12 @@
+const { nanoid } = require("nanoid");
+
 const { Router } = require("express");
+const NANO_ID = nanoid();
+
 const fs = require("fs");
 const router = Router();
+
+console.log();
 
 // Cargamos los datos del data.json
 const jsonDataParsed = fs.readFileSync("src/data.json", "utf-8");
@@ -40,7 +46,7 @@ router.get("/team", (req, res) => {
         "La ciencia nunca resuelve un problema sin crear otros 10 más. ",
     },
     {
-      name: "Sebastian",
+      name: "Romel",
       picture: "https://picsum.photos/250/250",
       description:
         "El experimentador que no sabe lo que está buscando no comprenderá lo que encuentra.",
@@ -64,7 +70,8 @@ router.post("/new-user", (req, res) => {
   // creamos un objeto y en su interior agregamos la info que nos pasa el usuario
   const newData = {
     ...req.body,
-    id: data.length + 1,
+    picNum: Math.round(Math.random() * 25),
+    id: NANO_ID,
   };
   // console.log(newData);
   data.push(newData);
@@ -80,7 +87,7 @@ router.get("/delete/:id", (req, res) => {
   // Desestructuramos el id recibido por url
   const { id } = req.params;
   // Realizamos un filtro, este filtro eliminará el array con el id seleccionado
-  data = data.filter((el) => el.id !== parseInt(id));
+  data = data.filter((el) => el.id !== id);
   // Usamos el método JSON stringify para convertir a formato json, un arreglo de javascript
   const json_data = JSON.stringify(data);
   // Volvemos a introducir los datos con el nuevo arreglo generado despúes del filtro

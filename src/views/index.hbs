@@ -5,10 +5,43 @@
     <title>Home</title>
 </head>
 <body class="dark:bg-900 dark:text-white">
-    {{> 'nav'}}
-    <section class="mt-8">
+    <div id="app">
+        {{> 'nav'}}
+        <section class="mt-4">
             <div class="container max-w-5xl px-4 mx-auto sm:px-8">
-                <div class="py-8">
+                <div class="py-4">
+                        <div class="relative">
+                            <label for="name-with-label" class="text-gray-700">
+                                Filtre un usuario
+                            </label>
+                            <input type="text" v-model="inputName" id="name-with-label"
+                                class="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                name="email" placeholder="Escribe el nombre"  />
+                            <h1>{{ inputName }}</h1>
+                            {{!-- Botón para hacer el filtrado del usuario --}}
+                           <template v-if="!showUsersButton">
+                            <button  @click="saveDataInput"
+                                class="mt-2 px-5 py-2.5 relative rounded group font-medium text-white font-medium block w-full">
+                                <span
+                                    class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
+                                <span
+                                    class="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
+                                <span
+                                    class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
+                                <span
+                                    class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
+                                <span class="relative">Filtrar</span>
+                            </button>
+                           </template>
+
+                           {{!-- Botón para ver todos los usuarios --}}
+                            <template v-else>
+                                <button type="button" @click="reload"
+                                    class="w-full px-4 py-2 mt-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                    Volver a ver todos los usuarios
+                                </button>
+                            </template>
+                        </div>
                     <div class="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
                         <div class="inline-block min-w-full overflow-hidden rounded-lg shadow">
                             <table class="min-w-full leading-normal">
@@ -36,19 +69,19 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="fatherBody">
                                     {{#each data}}
-                                    <tr x-data="count:10">
+                                    <tr  class="rowTable">
                                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0">
                                                     <a href="#" class="relative block">
-                                                        <img alt="profile" src="https://picsum.photos/20{{this.id}}/300"
+                                                        <img alt="profile" src="https://picsum.photos/20{{this.picNum}}/300"
                                                             class="object-cover w-10 h-10 mx-auto rounded-full " />
                                                     </a>
                                                 </div>
-                                                <div class="ml-3">
-                                                    <p class="text-gray-900 whitespace-no-wrap">
+                                                <div class="ml-3 ">
+                                                    <p class="text-gray-900 whitespace-no-wrap dataName">
                                                         {{ this.name }}
                                                     </p>
                                                 </div>
@@ -72,7 +105,8 @@
                                         <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                             <a href="/delete/{{ this.id }}"
                                                 class="flex items-center justify-center w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-red-600 rounded-lg shadow-md hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ">
-                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
                                                     </path>
@@ -88,7 +122,9 @@
                     </div>
                 </div>
             </div>
-    </section>
+        </section>
+    </div>
+    {{> 'footer' }}
 </body>
 </html>
 

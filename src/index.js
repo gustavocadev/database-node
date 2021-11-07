@@ -18,6 +18,12 @@ app.use(express.static(path.join(__dirname, "../public")));
 // Router
 app.use(require("./routes/index.routes"));
 
+// 404
+app.use((req, res, next) => {
+  res.status(404);
+  res.render("404");
+});
+
 // puerto
 const port = process.env.PORT || 3000;
 
