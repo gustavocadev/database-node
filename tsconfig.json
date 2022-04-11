@@ -8,5 +8,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-  }
+    "resolveJsonModule": true,
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.json",
+    "src/styles/**/*.css",
+    "src/views/**/*.hbs",
+  ]
 }
