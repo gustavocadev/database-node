@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "dev": "ts-node-dev --respawn ./src/main.ts",
-    "build": "concurrently \"tsc\" \"copyfiles -u 1 src/views/**/*.hbs dist\"",
+    "build": "concurrently \"tsc\" \"copyfiles -u 1 src/views/**/*.hbs dist\" \"copyfiles -u 1 src/**/*.hbs dist\"",
     "start": "npm run build && node dist/main.js"
   },
   "dependencies": {
