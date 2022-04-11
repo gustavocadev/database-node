@@ -13,7 +13,5 @@
   "include": [
     "src/**/*",
     "src/**/*.json",
-    "src/styles/**/*.css",
-    "src/views/**/*.hbs",
   ]
 }

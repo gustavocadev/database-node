@@ -2,11 +2,11 @@
   "name": "database-node-ts",
   "version": "1.0.0",
   "description": "Nodejs + Express,  database with JSON",
-  "main": "dist/main.js",
+  "main": "./dist/main.js",
   "scripts": {
     "dev": "ts-node-dev --respawn ./src/main.ts",
-    "build": "tsc && copyfiles -u 1 ./src/**/*.hbs dist && copyfiles -u 1 ./src/views/**/*.hbs ./dist",
-    "start": "node ./dist/main.js"
+    "build": "tsc && copyfiles -u 1 src/**/*.hbs dist && copyfiles -u 1 src/views/**/*.hbs dist",
+    "start": "node dist/main.js"
   },
   "dependencies": {
     "concurrently": "^7.1.0",
