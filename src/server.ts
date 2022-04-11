@@ -7,13 +7,13 @@ import { router as UserRoutes } from "./routes/users.routes"
 import { router as PagesRoutes } from "./routes/renderPages.routes"
 
 class Server {
-  #port: number | string
+  port: number | string
   app: Express
 
   constructor() {
     this.app = express()
     // puerto
-    this.#port = process.env.PORT ?? 3000
+    this.port = process.env.PORT ?? 3000
     this.configs()
     this.middlewares()
     this.routes()
@@ -47,7 +47,7 @@ class Server {
   }
 
   listen() {
-    this.app.listen(this.#port, () => {
+    this.app.listen(this.port, () => {
       console.log("I'm running! 🚀")
     })
   }
